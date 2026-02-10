@@ -32,3 +32,7 @@ def count_ip_visit(rows):
 
     return ip_visit
 
+def protocol_version(load_csv):
+    protocol = {line[3]:line[4] for line in load_csv}
+    return protocol
+
