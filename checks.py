@@ -52,4 +52,7 @@ def suspicious_activity_per_ip(data):
     return suspecious_simple_d
 
 
+def is_definitely_suspect(suspects):
+    return{ip : suspection for ip , suspection in suspects.items() if len(suspection) >= 2 }
+
 
