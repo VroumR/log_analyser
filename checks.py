@@ -24,4 +24,11 @@ def large_packets(load_csv):
 def large_or_normal_packets(load_csv):
     l_or_n = [line+["LARGE"] if int(line[5]) > SIZE_WARNING  else line+["NORMAL"] for line in load_csv]
     return l_or_n
-print(large_or_normal_packets(load_csv("network_traffic.log")))
+
+
+def count_ip_visit(rows):
+
+    ip_visit = {ip: sum(1 for line in rows if line[1] == ip) for ip in {line[1] for line in rows}}
+
+    return ip_visit
+
