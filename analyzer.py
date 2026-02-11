@@ -37,6 +37,18 @@ def get_matching_suspicions(line , suspicion_checks ):
         )
 
 
-print(get_matching_suspicions(load_csv("network_traffic.log")[11],suspicion_checks))
+def more_one_suspicion(data):
+        return list(
+            filter(
+                lambda result: len(result[1]) >= 1,
+                map(
+                    lambda line: (line, get_matching_suspicions(line, suspicion_checks)),
+                    data
+                )
+            )
+        )
+
+
+
 
 
